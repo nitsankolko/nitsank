@@ -73,7 +73,7 @@
 
   .photo-credit{position:absolute;bottom:44px;right:var(--pad);z-index:3;font-size:10.5px;letter-spacing:.16em;
     text-transform:uppercase;color:rgba(242,241,236,.72);opacity:0;transition:opacity .4s ease;pointer-events:none}
-  .hero:hover .photo-credit{opacity:1}
+  .hero:hover .photo-credit,.hero.show-credit .photo-credit{opacity:1}
 
   section{padding:clamp(80px,12vw,150px) 0}
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
@@ -299,6 +299,13 @@
   const heroImg=document.getElementById('heroImg');
   if(heroImg.complete&&heroImg.naturalWidth)heroImg.classList.add('loaded');
   heroImg.addEventListener('load',()=>heroImg.classList.add('loaded'));
+  if(window.matchMedia('(hover:none)').matches){
+    const hero=document.querySelector('.hero');
+    if(hero){
+      hero.addEventListener('click',e=>{e.stopPropagation();hero.classList.toggle('show-credit');});
+      document.addEventListener('click',()=>hero.classList.remove('show-credit'));
+    }
+  }
   const hdr=document.getElementById('hdr');
   const onScroll=()=>hdr.classList.toggle('scrolled',window.scrollY>40);
   onScroll();window.addEventListener('scroll',onScroll,{passive:true});
