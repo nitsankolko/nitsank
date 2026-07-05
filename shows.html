@@ -276,13 +276,14 @@
   }
 
   function row(ev, isPast){
-    const d = eventLocal(ev);
     const timed = !!ev.start.dateTime;
-    const mon = d.toLocaleString('en-US',{month:'short',timeZone:'UTC'});
-    const day = d.getUTCDate();
+    const d = timed ? new Date(ev.start.dateTime) : eventLocal(ev);
+    const tz = timed ? (ev.start.timeZone || undefined) : 'UTC';
+    const mon = d.toLocaleString('en-US',{month:'short',timeZone:tz});
+    const day = Number(d.toLocaleString('en-US',{day:'numeric',timeZone:tz}));
     const opts = timed
-      ? {weekday:'short',month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'UTC'}
-      : {weekday:'short',month:'short',day:'numeric',year:'numeric',timeZone:'UTC'};
+      ? {weekday:'short',month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit',timeZone:tz}
+      : {weekday:'short',month:'short',day:'numeric',year:'numeric',timeZone:tz};
     const dateStr = d.toLocaleString('en-US', opts);
     const title = esc(ev.summary || 'Untitled');
     const venue = esc(ev.description || '');
