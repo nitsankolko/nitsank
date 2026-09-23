@@ -445,7 +445,7 @@
     const btn=document.createElement('button'); btn.setAttribute('aria-label','Play '+(el.dataset.title||'video'));
     btn.addEventListener('click',()=>{
       const f=document.createElement('iframe');
-      f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0'; f.title=el.dataset.title||'Video';
+      f.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0'; f.title=el.dataset.title||'Video';
       f.allow='accelerometer; autoplay; encrypted-media; picture-in-picture'; f.allowFullscreen=true;
       el.replaceChildren(f);
     });
