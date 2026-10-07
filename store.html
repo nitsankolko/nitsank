@@ -66,10 +66,6 @@
   .hero-media img.loaded{opacity:1}
   .hero-media::after{content:"";position:absolute;inset:0;
     background:linear-gradient(to top,rgba(10,10,10,.94) 0%,rgba(10,10,10,.1) 42%,rgba(10,10,10,.42) 100%)}
-  @media (max-width:780px){
-    .hero-media img{object-position:77% 50%}
-    .hero-media::after{background:linear-gradient(to top,rgba(10,10,10,.96) 0%,rgba(10,10,10,.82) 24%,rgba(10,10,10,.12) 52%,rgba(10,10,10,.42) 100%)}
-  }
   .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(40px,7vw,90px)}
   .hero h1{font-size:clamp(3rem,13vw,11rem);font-weight:400;letter-spacing:-.025em}
   .hero .role{margin-top:18px;font-size:clamp(.95rem,2vw,1.25rem);opacity:.85;font-weight:300;letter-spacing:.04em}
@@ -203,6 +199,17 @@
     .nav-links a{padding:18px var(--pad);width:100%;border-top:1px solid var(--line);font-size:13px}
     .nav-links a::after{display:none}
     .burger{display:block}
+  }
+  /* Phones: the photo is landscape, so show it as a square (both hands and the
+     open score) and set the title below it instead of over a tight crop. */
+  @media (max-width:780px){
+    .hero{height:auto;min-height:0;display:block;padding:72px 0 0}
+    .hero-media{position:relative;inset:auto;aspect-ratio:1/1}
+    .hero-media img{object-position:52% 50%}
+    .hero-media::after{background:linear-gradient(to top,var(--bg) 0%,rgba(10,10,10,0) 28%,rgba(10,10,10,0) 72%,rgba(10,10,10,.5) 100%)}
+    .hero-inner{padding-top:4px;padding-bottom:40px}
+    .scroll-cue{display:none}
+    .photo-credit{bottom:auto;top:calc(100vw + 38px)}
   }
 </style>
 </head>
@@ -444,7 +451,7 @@
   const burger=document.getElementById('burger'),menu=document.getElementById('menu');
   burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o);hdr.classList.toggle('menu-open',o);});
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded',false);hdr.classList.remove('menu-open');}));
-  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:'0px 0px -12% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
   
