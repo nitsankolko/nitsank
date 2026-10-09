@@ -47,7 +47,7 @@
   header.scrolled{background:rgba(10,10,10,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
   header.menu-open{background:rgba(10,10,10,.96);border-color:var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-  .nav .name{font-family:var(--serif);font-size:19px;font-weight:480;letter-spacing:.005em}
+  .nav .name{white-space:nowrap;font-family:var(--serif);font-size:19px;font-weight:480;letter-spacing:.005em}
   .nav-links{display:flex;gap:32px;align-items:center}
   .nav-links a{position:relative;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;
     color:var(--muted);transition:color .25s;padding:4px 0}
@@ -192,7 +192,8 @@
   .info a{border-bottom:1px solid var(--line);transition:border-color .25s}
   .info a:hover{border-color:var(--fg)}
 
-  @media (max-width:780px){
+  /* Collapse the menu before the links run out of room (also on upright tablets). */
+  @media (max-width:960px){
     .nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;gap:0;background:rgba(10,10,10,.96);
       backdrop-filter:blur(14px);max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid transparent}
     .nav-links.open{max-height:70vh;border-color:var(--line)}
@@ -200,9 +201,9 @@
     .nav-links a::after{display:none}
     .burger{display:block}
   }
-  /* Phones: the photo is landscape, so show it as a square (both hands and the
+  /* Phones and upright tablets: the photo is landscape, so show it as a square (both hands and the
      open score) and set the title below it instead of over a tight crop. */
-  @media (max-width:780px){
+  @media (max-width:780px),(max-aspect-ratio:1/1){
     .hero{height:auto;min-height:0;display:block;padding:72px 0 0}
     .hero-media{position:relative;inset:auto;aspect-ratio:1/1}
     .hero-media img{object-position:52% 50%}
