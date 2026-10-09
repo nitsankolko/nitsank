@@ -42,7 +42,7 @@
   header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
   header.scrolled{background:rgba(10,10,10,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-  .nav .name{font-family:var(--serif);font-size:19px;font-weight:480;letter-spacing:.005em}
+  .nav .name{white-space:nowrap;font-family:var(--serif);font-size:19px;font-weight:480;letter-spacing:.005em}
   .nav-links{display:flex;gap:32px;align-items:center}
   .nav-links a{position:relative;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;
     color:var(--muted);transition:color .25s;padding:4px 0}
@@ -162,13 +162,16 @@
   .foot-meta{margin-top:48px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
     font-size:11.5px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
 
-  @media (max-width:780px){
+  /* Collapse the menu before the links run out of room (also on upright tablets). */
+  @media (max-width:960px){
     .nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;gap:0;background:rgba(10,10,10,.96);
       backdrop-filter:blur(14px);max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid transparent}
     .nav-links.open{max-height:70vh;border-color:var(--line)}
     .nav-links a{padding:18px var(--pad);width:100%;border-top:1px solid var(--line);font-size:13px}
     .nav-links a::after{display:none}
     .burger{display:block}
+  }
+  @media (max-width:780px){
     .about-grid{grid-template-columns:1fr;gap:40px}
     .about-portrait{aspect-ratio:4/5;max-height:70vh}
     .about p + p{font-size:1rem}
