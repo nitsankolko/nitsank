@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nitsan Kolko — Links</title>
+<meta name="description" content="Nitsan Kolko — pianist &amp; composer. Music, shows, scores.">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:title" content="Nitsan Kolko">
+<meta property="og:description" content="Pianist &amp; composer. Music, shows, scores.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nitsankolko.com/links.html">
+<meta property="og:image" content="https://nitsankolko.com/og-portrait.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nitsan Kolko at the piano">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Hanken+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a; --fg:#f2f1ec; --muted:#8c8c86;
+    --line:rgba(242,241,236,.22); --line-2:rgba(242,241,236,.38);
+    --accent:#c8a368;
+    --font:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:var(--font);font-weight:400;
+    font-size:16px;line-height:1.6;letter-spacing:.01em;-webkit-font-smoothing:antialiased;
+    min-height:100svh;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img,video{display:block;max-width:100%}
+
+  /* ===== Background ===== */
+  .bg{position:fixed;inset:0;z-index:0;background:#0a0a0a;overflow:hidden}
+  .bg video,.bg .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  /* Poster is a high-contrast b&w frame — it takes the heavier treatment. */
+  .bg .poster{object-position:50% 45%;filter:grayscale(16%) brightness(.78) contrast(1.04)}
+  /* Footage is already low-key and warm, so it needs far less knocking back.
+     The crop favours the left of frame, where the keyboard and the player sit.
+     No fade-in: the video carries its own poster attribute, so the first frame
+     replaces the still with no cross-dissolve and no flash of empty background. */
+  .bg video{object-position:42% 48%;filter:brightness(.96) contrast(1.03) saturate(.92)}
+  @media (min-width:760px){.bg video{object-position:50% 48%}}
+
+  .bg::after{content:"";position:absolute;inset:0;transition:opacity .9s ease;
+    background:
+      radial-gradient(120% 85% at 50% 42%,rgba(10,10,10,.22) 0%,rgba(10,10,10,.72) 72%,rgba(10,10,10,.92) 100%),
+      linear-gradient(to bottom,rgba(10,10,10,.72) 0%,rgba(10,10,10,.34) 30%,rgba(10,10,10,.62) 72%,rgba(10,10,10,.95) 100%)}
+  /* Lighter scrim once the video is up — still enough contrast for the type. */
+  .bg.playing::after{
+    background:
+      radial-gradient(125% 90% at 50% 44%,rgba(10,10,10,.06) 0%,rgba(10,10,10,.48) 70%,rgba(10,10,10,.8) 100%),
+      linear-gradient(to bottom,rgba(10,10,10,.6) 0%,rgba(10,10,10,.16) 32%,rgba(10,10,10,.44) 74%,rgba(10,10,10,.88) 100%)}
+  /* film grain — keeps the video from looking flat behind the type */
+  .bg::before{content:"";position:absolute;inset:-100%;z-index:1;pointer-events:none;opacity:.055;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation:grain 7s steps(6) infinite}
+  @keyframes grain{
+    0%{transform:translate(0,0)}17%{transform:translate(-3%,-4%)}33%{transform:translate(2%,-2%)}
+    50%{transform:translate(-2%,3%)}67%{transform:translate(3%,2%)}83%{transform:translate(-1%,-3%)}100%{transform:translate(0,0)}}
+  @media (prefers-reduced-motion:reduce){
+    .bg video{display:none}
+    .bg::before{animation:none}
+  }
+
+  /* ===== Column ===== */
+  .page{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    padding:max(44px,env(safe-area-inset-top)) 22px max(40px,env(safe-area-inset-bottom))}
+  .col{width:100%;max-width:430px;text-align:center}
+
+  .mark{display:inline-flex;align-items:center;justify-content:center;width:62px;height:62px;
+    border:1px solid var(--line);border-radius:50%;margin-bottom:24px;
+    font-family:var(--serif);font-size:20px;font-weight:430;letter-spacing:.06em;
+    color:var(--fg);background:rgba(10,10,10,.28);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  h1{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:1.02;
+    font-size:clamp(2.3rem,10vw,3.1rem)}
+  .role{margin-top:14px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:#c9c6bd}
+  .role span{color:var(--accent)}
+
+  .rule{width:34px;height:1px;background:var(--line-2);margin:28px auto 26px}
+
+  /* ===== Links ===== */
+  .links{display:flex;flex-direction:column;gap:11px}
+  .lnk{position:relative;display:flex;align-items:center;gap:13px;
+    padding:15px 20px;border:1px solid var(--line);border-radius:40px;
+    background:rgba(16,16,16,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    font-size:13.5px;letter-spacing:.05em;text-align:left;
+    transition:border-color .28s,background .28s,transform .28s}
+  .lnk:hover,.lnk:focus-visible{border-color:var(--fg);background:rgba(26,26,26,.6);transform:translateY(-2px)}
+  .lnk svg{width:17px;height:17px;fill:currentColor;flex:0 0 17px;opacity:.9}
+  .lnk .t{flex:1 1 auto}
+  .lnk .t b{display:block;font-weight:500}
+  .lnk .t em{display:block;font-style:normal;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .lnk .arr{flex:0 0 auto;width:13px;height:13px;opacity:.38;transition:opacity .28s,transform .28s}
+  .lnk:hover .arr{opacity:.85;transform:translateX(3px)}
+
+  .lnk.feature{border-color:var(--accent);background:rgba(200,163,104,.1)}
+  .lnk.feature .t em{color:var(--accent)}
+  .lnk.feature:hover{border-color:var(--accent);background:rgba(200,163,104,.17)}
+
+  /* ===== Social row ===== */
+  .soc{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-top:34px}
+  .soc a{color:var(--muted);transition:color .3s,transform .3s;display:inline-flex}
+  .soc a:hover,.soc a:focus-visible{color:var(--accent);transform:translateY(-2px)}
+  .soc svg{width:18px;height:18px;fill:currentColor;display:block}
+
+  .site{margin-top:30px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+    transition:color .3s;display:inline-block}
+  .site:hover{color:var(--fg)}
+
+  /* Entrance */
+  .fade{opacity:0;transform:translateY(14px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.fade{animation:none;opacity:1;transform:none}}
+
+  @media (max-height:700px){
+    .mark{width:52px;height:52px;font-size:17px;margin-bottom:18px}
+    .rule{margin:20px auto 18px}
+    .links{gap:9px}
+    .lnk{padding:13px 18px}
+    .soc{margin-top:26px}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg">
+  <!-- Fallback layer: shows only if the video is unplayable or motion is reduced. -->
+  <img class="poster" src="images/willow-bw.jpg" alt="">
+  <!-- Drop bg.mp4 (and optionally bg.webm) into video/ and it plays automatically.
+       The script gives this element the still above as its poster, so the hand-off
+       to the first frame happens under one set of grading, with nothing to fade. -->
+  <video id="bgv" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1">
+    <source src="video/bg.webm" type="video/webm">
+    <source src="video/bg.mp4" type="video/mp4">
+  </video>
+</div>
+
+<main class="page">
+  <div class="col">
+
+    <div class="mark fade" style="animation-delay:.05s">NK</div>
+
+    <h1 class="fade" style="animation-delay:.12s">Nitsan Kolko</h1>
+    <p class="role fade" style="animation-delay:.2s">Pianist <span>&amp;</span> Composer</p>
+
+    <div class="rule fade" style="animation-delay:.28s"></div>
+
+    <nav class="links" aria-label="Links">
+
+      <a class="lnk feature fade" style="animation-delay:.34s" href="stories-untold.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
+        <span class="t"><b>Stories Untold</b><em>Debut trio album · Nov 13</em></span>
+        <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </a>
+
+      <a class="lnk fade" style="animation-delay:.4s" href="https://www.bandsintown.com/a/15492112" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v2H4a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-3V2h-2v2H9V2H7zm12 7v10H5V9h14z"/></svg>
+        <span class="t"><b>Live Shows</b><em>Tour dates &amp; tickets</em></span>
+        <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </a>
+
+      <a class="lnk fade" style="animation-delay:.46s" href="store.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h12l2 5H4l2-5zm-2 7h16v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9zm5 3v2h6v-2H9z"/></svg>
+        <span class="t"><b>Store</b><em>CDs &amp; sheet music</em></span>
+        <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </a>
+
+      <a class="lnk fade" style="animation-delay:.52s" href="https://open.spotify.com/artist/7hshpLVCbVORPCKYo59aUm" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.091.241-3.01-1.84-6.79-2.259-11.251-1.24-.418.122-.832-.164-.948-.582-.121-.418.165-.832.582-.949 4.861-1.111 9.039-.62 12.39 1.429.369.241.49.722.236 1.101zm1.473-3.272c-.301.461-.901.621-1.371.32-3.45-2.121-8.71-2.74-12.79-1.491-.521.16-1.082-.135-1.242-.656-.16-.522.135-1.082.656-1.242 4.671-1.418 10.461-.728 14.401 1.701.46.29.62.92.346 1.368zm.129-3.403C15.24 8.091 8.82 7.851 5.16 8.961c-.625.19-1.282-.164-1.471-.789-.19-.626.164-1.282.789-1.472 4.201-1.275 11.288-1.029 15.749 1.62.563.331.74 1.061.41 1.621-.331.561-1.061.74-1.622.41z"/></svg>
+        <span class="t"><b>Spotify</b></span>
+        <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </a>
+
+      <a class="lnk fade" style="animation-delay:.58s" href="https://music.apple.com/il/artist/nitsan-kolko/1573053250" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.4" y="6" width="1.3" height="10"/><rect x="15.6" y="4.6" width="1.3" height="9.4"/><path d="M8.4 6 16.9 4.3v2L8.4 8z"/><ellipse cx="7" cy="16.4" rx="2.6" ry="2.1"/><ellipse cx="14.2" cy="14.4" rx="2.6" ry="2.1"/></svg>
+        <span class="t"><b>Apple Music</b></span>
+        <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </a>
+
+      <a class="lnk fade" style="animation-delay:.64s" href="https://www.youtube.com/channel/UCYVM4LFyi4rp2N2tuzMVX1w" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        <span class="t"><b>YouTube</b></span>
+        <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </a>
+
+      <a class="lnk fade" style="animation-delay:.7s" href="mailto:nitsan.kolko@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 8L4.3 7h15.4L12 13z"/></svg>
+        <span class="t"><b>Booking &amp; Contact</b></span>
+        <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </a>
+
+    </nav>
+
+    <nav class="soc fade" style="animation-delay:.78s" aria-label="Social">
+      <a href="https://www.instagram.com/nitsankolko/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308 1.266-.058 1.646-.07 4.85-.07M12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.355.673 2.014 2.014.673 3.355.157 5.197.072 7.052.014 8.332 0 8.741 0 12s.014 3.668.072 4.948c.085 1.855.601 3.697 1.942 5.038 1.341 1.341 3.183 1.857 5.038 1.942C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.855-.085 3.697-.601 5.038-1.942 1.341-1.341 1.857-3.183 1.942-5.038.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.085-1.855-.601-3.697-1.942-5.038-1.341-1.341-3.183-1.857-5.038-1.942C15.668.014 15.259 0 12 0m0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8m6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881"/></svg></a>
+      <a href="https://www.facebook.com/nitsan.kolko" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a href="https://soundcloud.com/nitsan-kolko" target="_blank" rel="noopener" aria-label="SoundCloud" title="SoundCloud"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="12" width="1.4" height="5" rx=".7"/><rect x="3.6" y="10.5" width="1.4" height="6.5" rx=".7"/><rect x="6.2" y="9" width="1.4" height="8" rx=".7"/><rect x="8.8" y="11" width="1.4" height="6" rx=".7"/><path d="M12 8.5c.45 0 .87.12 1.24.32A4 4 0 0 1 21 9.5 3.4 3.4 0 0 1 20.4 16.8l-.4.2h-8a.5.5 0 0 1-.5-.5V9c0-.28.22-.5.5-.5z"/></svg></a>
+      <a href="https://hillaigovreennitsankolko.bandcamp.com/" target="_blank" rel="noopener" aria-label="Bandcamp" title="Bandcamp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 18.75l7.437-13.5H24l-7.437 13.5H0z"/></svg></a>
+    </nav>
+
+    <a class="site fade" style="animation-delay:.86s" href="index.html">nitsankolko.com</a>
+
+  </div>
+</main>
+
+<script>
+(function(){
+  var v=document.getElementById('bgv');
+  if(!v) return;
+  var bg=v.parentNode;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){v.remove();return;}
+  // Borrow the still as the video's poster rather than hardcoding it twice —
+  // matters when the image is inlined as a data URI.
+  var still=bg.querySelector('.poster');
+  if(still&&still.src) v.poster=still.src;
+  // Video grading from the first paint: the poster is already on screen under the
+  // same treatment the footage gets, so there is nothing to wait for and nothing to fade.
+  bg.classList.add('playing');
+  var kick=function(){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); };
+  v.addEventListener('canplay',kick);
+  kick();
+  // Safari sometimes needs a nudge after the tab regains focus.
+  document.addEventListener('visibilitychange',function(){ if(!document.hidden) kick(); });
+  // No playable file → the poster is the page. (Checked on the element itself, not on
+  // <source>: a missing .webm must not take the .mp4 down with it.)
+  v.addEventListener('error',function(){ if(v.error){ v.remove(); bg.classList.remove("playing"); } });
+})();
+</script>
+
+</body>
+</html>
