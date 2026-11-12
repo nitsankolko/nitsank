@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stories Untold — Scan to listen · Nitsan Kolko</title>
+<meta name="description" content="Scan to listen to Stories Untold, the debut piano trio album by Nitsan Kolko, out November 13, 2026 on Adhyaropa Records.">
+<!-- Display page for merch tables, posters and screens; not meant for search results. -->
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0b09; --fg:#ece6d8; --soft:#c9c2b1; --muted:#8e8775;
+    --line:rgba(236,230,216,.12); --accent:#c8a368;
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;min-height:100svh}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;
+    background:radial-gradient(120% 90% at 50% 0%,rgba(200,163,104,.07),transparent 55%)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  .page{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;
+    padding:clamp(28px,6vw,64px) 16px}
+  .card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);
+    align-items:center;width:100%;max-width:1000px}
+
+  .cover img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:4px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+
+  .info{text-align:center;display:flex;flex-direction:column;align-items:center}
+  .label{display:inline-flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--muted);font-weight:500}
+  .label::before,.label::after{content:"";width:22px;height:1px;background:var(--accent)}
+  h1{font-family:var(--serif);font-weight:380;letter-spacing:-.01em;line-height:1.02;
+    font-size:clamp(2.4rem,6vw,4rem);margin-top:16px}
+  .artist{margin-top:10px;font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--soft)}
+  .date{margin-top:8px;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--soft)}
+
+  .qr{margin-top:28px;display:block;background:#fff;padding:14px;border-radius:6px;
+    width:min(260px,70vw)}
+  .qr img{width:100%;height:auto;image-rendering:pixelated}
+  .scan{margin-top:16px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:500}
+  .url{margin-top:6px;font-size:15px;letter-spacing:.04em;color:var(--fg)}
+
+  @media (max-width:720px){
+    .card{grid-template-columns:1fr;max-width:420px}
+    .cover{max-width:300px;margin:0 auto}
+  }
+
+  /* Print: one page, ink-friendly, nothing cut off. */
+  @media print{
+    @page{size:auto;margin:14mm}
+    body{background:#fff;color:#111}
+    body::before{display:none}
+    .page{min-height:0;padding:0}
+    .card{grid-template-columns:1fr;max-width:150mm;gap:8mm;margin:0 auto;break-inside:avoid}
+    .cover{max-width:80mm;margin:0 auto}
+    .cover img{box-shadow:none}
+    .label,.artist,.date{color:#444}
+    .scan{color:#7a5e2c}
+    .url{color:#111}
+    .qr{width:60mm;padding:0}
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="card">
+    <div class="cover">
+      <img src="stories-untold-cover.jpg" width="1200" height="1200"
+           alt="Stories Untold album cover: Nitsan Kolko reading a book in front of a library bookshelf">
+    </div>
+    <div class="info">
+      <span class="label">New album</span>
+      <h1>Stories Untold</h1>
+      <p class="artist">Nitsan Kolko</p>
+      <p class="date">Out November 13, 2026 on Adhyaropa Records</p>
+      <a class="qr" href="https://nitsankolko.com/stories-untold" aria-label="Open the Stories Untold page">
+        <img src="qr/stories-untold-qr.svg" width="370" height="370" alt="QR code linking to nitsankolko.com/stories-untold">
+      </a>
+      <p class="scan">Scan to listen &amp; pre-save</p>
+      <a class="url" href="https://nitsankolko.com/stories-untold">nitsankolko.com/stories-untold</a>
+    </div>
+  </div>
+</main>
+</body>
+</html>
