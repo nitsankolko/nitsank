@@ -184,6 +184,8 @@
   .proj-group:first-of-type{margin-top:0}
   .proj-h{font-size:clamp(1.4rem,3.4vw,2.1rem);font-weight:500;letter-spacing:-.01em;margin-bottom:6px}
   .proj-d{color:var(--muted);font-weight:300;max-width:60ch;margin-bottom:26px}
+  .proj-d a{color:var(--fg);border-bottom:1px solid var(--line);transition:border-color .25s}
+  .proj-d a:hover,.proj-d a:focus-visible{border-color:var(--fg)}
   .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
   .vid{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;cursor:pointer;
     overflow:hidden;border-radius:6px;background:#111}
@@ -230,7 +232,7 @@
     <h2>Projects</h2>
     <div class="proj-group">
       <h3 class="proj-h">Trio</h3>
-      <p class="proj-d">Original compositions for piano trio.</p>
+      <p class="proj-d">Original compositions for piano trio, with Charlie Lincoln on bass and Ben Silashi on drums. The debut album, <a href="stories-untold.html"><em>Stories Untold</em></a>, is out now.</p>
       <div class="video-grid">
         <button class="vid" data-id="nKBgvC_FiWw" aria-label="Play video"><img src="https://i.ytimg.com/vi/nKBgvC_FiWw/hqdefault.jpg" alt="Trio studio video: Effervescent" loading="lazy"><span class="play"></span></button>
         <button class="vid" data-id="XOxCfA5nu6M" aria-label="Play video"><img src="https://i.ytimg.com/vi/XOxCfA5nu6M/hqdefault.jpg" alt="Trio studio video 2" loading="lazy"><span class="play"></span></button>
