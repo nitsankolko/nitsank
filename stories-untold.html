@@ -360,15 +360,15 @@
   .pg.front::after{background:linear-gradient(to right,rgba(0,0,0,.28),transparent 14%)}
   .pg.back::after{background:linear-gradient(to left,rgba(0,0,0,.28),transparent 14%)}
   .pg.ph{display:grid;place-items:center;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line)}
-  .bk-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid var(--fg);
-    background:rgba(10,10,10,.55) center/18px no-repeat;cursor:pointer;opacity:0;transition:opacity .3s,background-color .25s;padding:0}
-  .bk-arrow.prev{left:12px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f2f1ec' stroke-width='1.5'%3E%3Cpath d='M15 5l-7 7 7 7'/%3E%3C/svg%3E")}
-  .bk-arrow.next{right:12px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f2f1ec' stroke-width='1.5'%3E%3Cpath d='M9 5l7 7-7 7'/%3E%3C/svg%3E")}
-  .bk-arrow:hover{background-color:rgba(10,10,10,.85)}
-  .bk-arrow[disabled]{display:none}
-  .cover:hover .bk-arrow,.cover:focus-within .bk-arrow{opacity:1}
-  @media (hover:none){.bk-arrow{opacity:1}}
-  .bk-count{margin-top:14px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .bk-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px}
+  .bk-arrow{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--fg);
+    background:transparent center/18px no-repeat;cursor:pointer;transition:background-color .25s,border-color .25s,opacity .25s;padding:0}
+  .bk-arrow.prev{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f2f1ec' stroke-width='1.5'%3E%3Cpath d='M15 5l-7 7 7 7'/%3E%3C/svg%3E")}
+  .bk-arrow.next{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f2f1ec' stroke-width='1.5'%3E%3Cpath d='M9 5l7 7-7 7'/%3E%3C/svg%3E")}
+  .bk-arrow:hover:not([disabled]){background-color:rgba(242,241,236,.12)}
+  .bk-arrow:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+  .bk-arrow[disabled]{opacity:.25;cursor:default}
+  .bk-count{margin:0;flex:1;text-align:center;white-space:nowrap;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
   @media (prefers-reduced-motion:reduce){.bk-stage,.book,.sheet{transition:none}}
   /* Collapse the menu before the links run out of room (also on upright tablets). */
   @media (max-width:1080px){
@@ -446,10 +446,12 @@
       <div class="cover" id="cover">
         <div class="bk-stage" id="bkStage">
           <div class="book" id="book"></div>
+        </div>
+        <div class="bk-nav">
           <button class="bk-arrow prev" id="bkPrev" aria-label="Previous page" disabled></button>
+          <p class="bk-count" id="bkCount" aria-live="polite"></p>
           <button class="bk-arrow next" id="bkNext" aria-label="Next page"></button>
         </div>
-        <p class="bk-count" id="bkCount" aria-live="polite"></p>
       </div>
       <div class="release-info">
         <h2>Stories Untold</h2>
@@ -669,7 +671,7 @@
       book.classList.toggle('bk-open',cur>0&&cur<N);
       flip(()=>rel.classList.toggle('bk-wide',cur>0&&cur<N&&!mobile()));
       rel.classList.toggle('bk-end',cur===N);
-      cnt.textContent=cur===0?'Cover · browse the booklet':cur===N?'Back cover':('Pages '+(2*cur)+'–'+(2*cur+1));
+      cnt.textContent=cur===0?'Browse the booklet':cur===N?'Back cover':('Pages '+(2*cur)+'–'+(2*cur+1));
       prevB.disabled=cur===0;nextB.disabled=cur===N;
       size();
     }
