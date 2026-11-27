@@ -328,6 +328,35 @@
   .single-title em{font-style:italic}
   .single .lnk{background:rgba(10,10,10,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
   .single .lnk.filled{background:var(--fg)}
+  /* ---------- Press ---------- */
+  .press{--soft:#cfcec8}
+  .press-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+  .press-nav{display:flex;gap:8px}
+  .press-nav[hidden]{display:none}
+  .press-nav button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);
+    background:transparent;color:var(--muted);cursor:pointer;font-size:15px;line-height:1;
+    transition:border-color .3s,color .3s}
+  .press-nav button:hover,.press-nav button:focus-visible{border-color:var(--accent);color:var(--accent)}
+  .press-rail{display:flex;gap:clamp(18px,3vw,36px);overflow-x:auto;scroll-snap-type:x mandatory;
+    margin-top:34px;padding-bottom:16px;scrollbar-width:thin;scrollbar-color:var(--accent-dim) transparent}
+  .press-rail::-webkit-scrollbar{height:4px}
+  .press-rail::-webkit-scrollbar-track{background:transparent}
+  .press-rail::-webkit-scrollbar-thumb{background:var(--accent-dim);border-radius:2px}
+  .press-card{flex:0 0 clamp(260px,76vw,330px);scroll-snap-align:start;margin:0;
+    border-top:1px solid var(--line-2);padding:26px 0 8px;display:flex;flex-direction:column;gap:20px;
+    transition:border-color .35s ease}
+  .press-card:hover{border-color:var(--accent)}
+  .press-card blockquote{position:relative;margin:0;font-family:var(--serif);font-weight:340;
+    font-size:1.06rem;line-height:1.55;color:var(--soft)}
+  .press-card blockquote::before{content:"\201C";position:absolute;top:-14px;left:-4px;
+    font-family:var(--serif);font-style:italic;font-size:3.4rem;line-height:1;color:var(--accent-dim);pointer-events:none}
+  .press-card:hover blockquote{color:var(--fg)}
+  .press-card .src{margin-top:auto;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);display:flex;flex-direction:column;gap:5px}
+  .press-card .src .who{color:var(--soft);text-transform:none;letter-spacing:.02em;font-size:13px}
+  .press-card .src a{color:var(--muted);transition:color .25s;width:fit-content}
+  .press-card .src a:hover,.press-card .src a:focus-visible{color:var(--accent)}
+  @media (max-width:640px){.press-nav{display:none}}
   .contact h2{font-size:clamp(1.8rem,5vw,3rem);margin-bottom:18px}
   .contact .label{display:block;margin-bottom:18px}
   .contact .mail{font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.7rem);border-bottom:1px solid var(--line);padding-bottom:2px;transition:border-color .25s}
@@ -502,6 +531,22 @@
     </div>
   </section>
 
+  <section id="press" class="press wrap reveal">
+    <div class="press-head">
+      <span class="label">Press</span>
+      <div class="press-nav">
+        <button data-dir="-1" aria-label="Previous">&#8592;</button>
+        <button data-dir="1" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+    <div class="press-rail" id="pressRail">
+      <figure class="press-card">
+        <blockquote>“A beautiful work that makes you want to savor each piece slowly, as if reading a story.”</blockquote>
+        <figcaption class="src"><a href="https://musica-terra.com/2026/11/27/nitsan-kolko-stories-untold/" target="_blank" rel="noopener">Música Terra (Japan) ↗</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section id="images" class="gallery wrap reveal">
     <span class="label">Images</span>
     <div class="grid">
@@ -574,6 +619,14 @@
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded',false);hdr.classList.remove('menu-open');}));
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // press rail arrows (hidden while every card fits)
+  const pressRail=document.getElementById('pressRail'),pressNav=document.querySelector('.press-nav');
+  if(pressRail&&pressNav){
+    const fitNav=()=>{pressNav.hidden=pressRail.scrollWidth<=pressRail.clientWidth+1;};
+    fitNav();window.addEventListener('resize',fitNav);
+    pressNav.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>pressRail.scrollBy({left:(+btn.dataset.dir)*348,behavior:'smooth'})));
+  }
 
   // lightbox
   const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbClose=document.getElementById('lbClose'),lbCredit=document.getElementById('lbCredit');
